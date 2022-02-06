@@ -110,7 +110,8 @@ response = requests.request("POST", url, json=payload, headers=headers)
 print(response.text)
 ```
 
-- Test endpoint /indexSecureOnChain/ (Insomnia): ![](video/indexSecureOnChain.gif)
+#### Test endpoint /indexSecureOnChain/ ([Insomnia](https://insomnia.rest/))
+ ![](video/indexSecureOnChain.gif)
 
 ---
 
@@ -161,7 +162,7 @@ response = requests.request("POST", url, json=payload, headers=headers)
 print(response.text)
 ```
 
-- Test endpoint /removeOnChain (Insomnia): ![](video/removeOnChain.gif)
+#### Test endpoint /removeOnChain ([Insomnia](https://insomnia.rest/)): ![](video/removeOnChain.gif)
 ---
 
 ### Right to Rectification
@@ -216,7 +217,8 @@ response = requests.request("POST", url, json=payload, headers=headers)
 print(response.text)
 ```
 
-- Test endpoint /rectifyOnChain (Insomnia): ![](video/rectifyOnChain.gif)
+#### Test endpoint /rectifyOnChain ([Insomnia](https://insomnia.rest/))
+![](video/rectifyOnChain.gif)
 ---
 
 
