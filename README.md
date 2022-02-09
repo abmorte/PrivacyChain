@@ -1,22 +1,21 @@
 # PrivacyChain
 
 ## Introduction
-A framework for personal data persistence in DLT applications for compliance to RTBF and right to retification of the LGPD - Brazilian law for personal data protection.  
+A framework for personal data persistence in DLT applications for compliance to RTBF and right to rectification of the LGPD - Brazilian law for personal data protection.  
 
  ![PrivacyChain OpenAPI specification](img/privacychain-spec.png)
 
 ---  
 
 ## Motivation
-This project is part of the Dissertation of the Master's at PPGTI-IFPB. The dissertation is  
-the partial requirement to get the Master Title.  
+This project is part of the Dissertation of the Master at PPGTI-IFPB.
 
 
-In applications based on DLT (Distributed Ledger Technology), or blockchain as they are more commonly called, that process personal data, the characteristic of immutability intrinsic to this technology can be an obstacle for the data subject exercises the rights to be forgotten and to rectification of compliance with the LGPD – Brazilian Law for the Protection of Personal Data.  
+In applications based on DLT (Distributed Ledger Technology), or blockchain as they are more commonly called, that process personal data, the characteristic of immutability intrinsic to this technology can be an obstacle for the data subject exercises the rights to be forgotten and to rectification for compliance with the LGPD – Brazilian Law for the Protection of Personal Data.  
 
 An investigation was conducted. The investigation showed the suitability of using two techniques combined: (1) off-chain storage and (2) cryptographic commitment.  
 
-A framework PrivacyChain was built with two techniques cited above. PrivacyChain features are made available through an API. Each resource of PrivacyChain is implemented as a API's endpoint.  
+A framework PrivacyChain was built with two techniques cited above. PrivacyChain features are made available through an API. Each resource of PrivacyChain is implemented as an API's endpoint.  
 
 ---
 
@@ -34,7 +33,7 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
 ---
 
 ## Instructions for installation
-1. Download code from GitHub: [https://github.com/abmorte/privacychain](https://github.com/abmorte/privacychain)
+1. Download code from GitHub: [https://github.com/abmorte/privacychain](https://github.com/abmorte/PrivacyChain)
 2. Create a virtual environment with libraries from requirements.txt.
 3. Download and install PostgreSQL database, vide [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
 4. Create the database (for control and tracking of personal data) with script.sql.
@@ -44,19 +43,20 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
     uvicorn app.main:app --reload.
  ``` 
 6. Access localhost:8000/docs for swagger UI interface, or localhost:8000/redoc for redoc interface.
-7. Demonstration:
+7. Demonstration
  ![Demonstration](video/load-app.gif)
 ---
 
 ## Usage
 
 -  Data preparation
-1. List - according to the application's business context - the personal data you want to store in the blockchain.
+   * List - according to the application's business context - the personal data you want to store in the blockchain.
 
-2. Select data that atomically identifies the owner of the personal data. This will be the *locator* key, to be used on the logging endpoints in the blockchain.
+   * Select data that atomically identifies the owner of the personal data. This will be the *locator* key, to be used on the logging endpoints in the blockchain.
 
 - Adequate application to trigger PrivacyChain services
-It´s necessary to adequate the application that will use PrivacyChain´s services. Below is the howto for the major´s endpoint´s.
+  * It´s necessary to adequate the application that will use PrivacyChain´s services. Below is the howto for the major´s endpoints.
+
 ---
 
 ### Register on blockchain
@@ -71,19 +71,18 @@ def insert_health_record(locator: str) -> bool:
   INSERT in application \n 
   """
   try:
-    # locator = CPF do paciente
+    # locator = patiente´s document
     locator = 72815157071
 
-    # inserção de registro médico na base de dados da aplicação
     insert_health_record(locator)
 
-    # chamada ao endpoint do PrivacyChain para registro seguro na blockchain.
-    # Obs. payload inclui a chave locator
+    # call to PrivacyChain endpoint for secure blockchain registration.
+    # Note payload includes locator key
     indexSecureOnChain(payload)
   except:
-    print("Ocorreu um erro")
+    print("An error has occurred.")
   else: 
-    print("Registro efetuado com sucesso.")
+    print("Registration successful.")
 
   return True
 ```
@@ -126,20 +125,19 @@ def delete_health_record(locator: str) -> bool:
   DELETE in application \n 
   """
   try:
-    # locator = CPF do paciente
+    # locator = patiente´s document
     locator = 72815157071
 
-    # exclusão de registro médico na base de dados da aplicação
+    # medical record deletion in the application database
     delete_health_record(locator)
 
-    # chamada ao endpoint do PrivacyChain para exclusão de registro na blockchain.
-    # Obs. payload inclui a chave locator
+    # call to PrivacyChain endpoint for blockchain record deletion.
+    # Note payload includes locator key
     removeOnChain(payload)
   except:
-    print("Ocorreu um erro")
-  else: 
-    print("Registro excluído com sucesso.")
-
+     print("An error has occurred")
+  else:
+     print("Record deleted successfully.")
   return True
 ```
 ---
@@ -162,7 +160,8 @@ response = requests.request("POST", url, json=payload, headers=headers)
 print(response.text)
 ```
 
-#### Test endpoint /removeOnChain ([Insomnia](https://insomnia.rest/)): ![](video/removeOnChain.gif)
+#### Test endpoint /removeOnChain ([Insomnia](https://insomnia.rest/))
+![](video/removeOnChain.gif)
 ---
 
 ### Right to Rectification
@@ -176,20 +175,19 @@ def update_health_record(locator: str) -> bool:
   UPDATE in application \n 
   """
   try:
-    # locator = CPF do paciente
+    # locator = patiente´s document
     locator = 72815157071
 
-    # retificação de registro médico na base de dados da aplicação
+    # medical record rectification in the application database
     update_health_record(locator)
 
-    # chamada ao endpoint do PrivacyChain para retificar registro na blockchain.
-    # Obs. payload inclui a chave locator
+    # call to PrivacyChain endpoint to rectify blockchain record.
+    # Note payload includes locator key
     rectifyOnChain(payload)
   except:
-    print("Ocorreu um erro")
-  else: 
-    print("Registro retificado com sucesso.")
-
+     print("An error has occurred")
+  else:
+     print("Record successfully rectified.")
   return True
 ```
 
