@@ -44,8 +44,9 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
  ``` 
 6. Access localhost:8000/docs for swagger UI interface, or localhost:8000/redoc for redoc interface.
 7. Demonstration
+   
  ![Demonstration](video/load-app.gif)
----
+
 
 ## Usage
 
@@ -57,12 +58,11 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
 - Adequate application to trigger PrivacyChain services
   * It´s necessary to adequate the application that will use PrivacyChain´s services. Below is the howto for the major´s endpoints.
 
----
-
 ### Register on blockchain
 #### Use endpoint /indexOnChain/ for simple anonymization or /indexSecureOnChain for secure anonymization.
 
----
+
+
 ```python
 # Pseudocode for insert secure on-chain
 
@@ -86,7 +86,7 @@ def insert_health_record(locator: str) -> bool:
 
   return True
 ```
----
+
 ```python
 # Sample client code for consumption of indexSecureOnChain endpoint
 
@@ -113,10 +113,10 @@ print(response.text)
  ![](video/indexSecureOnChain.gif)
 
 ---
-
 ### Right To Be Forgotten
 #### Use endpoint /removeOnChain/
----
+
+
 ```python
 # Pseudocode for Remove on-chain
 
@@ -140,8 +140,7 @@ def delete_health_record(locator: str) -> bool:
      print("Record deleted successfully.")
   return True
 ```
----
----
+
 ```python
 # Sample client code for consumption of removeOnchain endpoint
 
@@ -162,11 +161,11 @@ print(response.text)
 
 #### Test endpoint /removeOnChain ([Insomnia](https://insomnia.rest/))
 ![](video/removeOnChain.gif)
----
 
+---
 ### Right to Rectification
 #### Use endpoint /rectifyOnChain/
----
+
 ```python
 # Pseudocode for Rectify on-chain
 
@@ -191,7 +190,7 @@ def update_health_record(locator: str) -> bool:
   return True
 ```
 
----
+
 ```python
 
 # Sample client code for consumption of rectifyOnchain endpoint
@@ -217,9 +216,7 @@ print(response.text)
 
 #### Test endpoint /rectifyOnChain ([Insomnia](https://insomnia.rest/))
 ![](video/rectifyOnChain.gif)
+
 ---
-
-
 ## License
-
 MIT
