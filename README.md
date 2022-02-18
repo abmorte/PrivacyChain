@@ -3,7 +3,7 @@
 ## Introduction
 A framework for personal data persistence in DLT applications for compliance to RTBF and right to rectification of the LGPD - Brazilian law for personal data protection.  
 
- ![PrivacyChain OpenAPI specification](img/privacychain-spec.png)
+ ![PrivacyChain OpenAPI specification](img/privacychain-spec.png "Screenshot of the PrivacyChain interface")
 
 ---  
 
@@ -25,25 +25,46 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
 ---
 
 ## Built with
-- [FAST API](https://fastapi.tiangolo.com/)
-- [Ganache](https://trufflesuite.com/ganache)
-- [PostgreSQL](https://www.postgresql.org/download/)
-- [Web3.py](https://web3py.readthedocs.io/en/stable/#)
+- [FAST API (v0.68.0)](https://fastapi.tiangolo.com/)
+- [Ganache (v2.5.4)](https://trufflesuite.com/ganache)
+- [PostgreSQL (v13.3)](https://www.postgresql.org/download/)
+- [Web3.py (v5.23.0)](https://web3py.readthedocs.io/en/stable/#)
 
 ---
 
 ## Instructions for installation
 1. Download code from GitHub: [https://github.com/abmorte/privacychain](https://github.com/abmorte/PrivacyChain)
-2. Create a virtual environment with libraries from requirements.txt.
-3. Download and install PostgreSQL database, vide [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
-4. Create the database (for control and tracking of personal data) with script.sql.
-5. Install Ganache vide [https://trufflesuite.com/ganache/](https://trufflesuite.com/ganache/)
-6. Execute command:
-  ```
-    uvicorn app.main:app --reload.
+2. Create a virtual environment. Example name: .venv 
+```
+  python -m venv .venv
+```
+3. Activate this environment: Examples commands below and between ' '
+```
+  Example in Linux: 'source .venv/bin/activate'
+  Example in Windows: '.venv/Scripts/Activate'
+```
+4. Install libraries in it from requirements.txt:
+```
+    pip install -r requirements.txt
+``` 
+5. Download and install PostgreSQL database, vide [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
+6. Create the database (for control and tracking of personal data) with script.sql.
+7. Install Ganache vide [https://trufflesuite.com/ganache/](https://trufflesuite.com/ganache/)
+  ---
+  **NOTE**
+
+    For Ganache's installation on Linux:
+
+ *  download ganache v2.5.4 from [link](https://github.com/trufflesuite/ganache-ui/releases/download/v2.5.4/ganache-2.5.4-linux-x86_64.AppImage) 
+ *  execute chmod 777 ganache-2.5.4-linux-x86_64.AppImage
+ *  execute ./Ganache-2.1.0.AppImage
+  ---
+8. Execute command:
+ ```
+    uvicorn app.main:app --reload
  ``` 
-6. Access localhost:8000/docs for swagger UI interface, or localhost:8000/redoc for redoc interface.
-7. Demonstration
+9. Access localhost:8000/docs for swagger UI interface, or localhost:8000/redoc for redoc interface.
+10. Demonstration
    
  ![Demonstration](video/load-app.gif)
 
@@ -219,4 +240,4 @@ print(response.text)
 
 ---
 ## License
-MIT
+This project is licensed under the terms of the MIT license.
