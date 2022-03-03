@@ -68,6 +68,11 @@ Compliance with LGPD's rights: RTBF (Right To Be Forgotten) and Right to rectifi
    
  ![Demonstration](video/load-app.gif)
 
+## Tests
+- It's recommend testing API through the [Insomnia](https://insomnia.rest/) app. It install Insomnia.
+- Use the "Run in Insomnia" button below to import requests that can be used to test PrivacyChain's endpoints.
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=PrivacyChain&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fabmorte%2FPrivacyChain%2Fmain%2Ftests%2Fendpoints.json)
 
 ## Usage
 
