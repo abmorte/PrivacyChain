@@ -1,17 +1,12 @@
---
 -- PrivacyChain framework database script
---
 -- Name: mestrado-ifpb; Type: DATABASE; Schema: -; Owner: postgres
---
 
 -- DROP DATABASE "mestrado-ifpb";
 CREATE DATABASE "mestrado-ifpb"
-    WITH 
+    WITH
     OWNER = postgres
     ENCODING = 'UTF8'
-    LC_COLLATE = 'English_United States.1252'
-    LC_CTYPE = 'English_United States.1252'
-    TABLESPACE = pg_default
+    TABLESPACE = pg_default            
     CONNECTION LIMIT = -1;
 
 \connect "mestrado-ifpb"
@@ -62,7 +57,7 @@ COMMENT ON COLUMN "privacychain".tracking.salt
     IS '36-character random string generated using the uuid4 function - see RFC 4122';
 
 COMMENT ON COLUMN "privacychain".tracking.hash_method
-    IS 'String identifying the method used in the anonymization of personal data. Domain: 'MD5', 'SHA1', 'SHA256', 'SHA512'';
+    IS 'String identifying the method used in the anonymization of personal data. Domain: MD5, SHA1, SHA256, SHA512';
 
 COMMENT ON COLUMN "privacychain".tracking.tracking_dt
     IS 'timestamp identifying when the tuple is persisted in the database';
